@@ -30,8 +30,8 @@ the grammar has to be in chomschy normal form and should be written in the follo
   
 ### example grammar
 
-S->AB|BC
-A->BA|a
-B->CC|b
+S->AB|BC  
+A->BA|a  
+B->CC|b  
 C->AB|a
 
