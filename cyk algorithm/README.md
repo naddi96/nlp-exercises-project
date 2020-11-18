@@ -2,7 +2,7 @@
 
 simple implementation of cyk algorithm for parsing strings of a grammar
 
-# how to run
+## how to run
 
 after installing the dependency (just numpy)
 
@@ -12,7 +12,7 @@ run it with python3
 
 - `python3 cyk.pys`
 
-# where to put things
+## where to put things
 
 put the string that you want to parse into the file 
 
@@ -21,10 +21,17 @@ put the string that you want to parse into the file
 put your grammar into the file
 - **gram.txt**
 
-# grammar syntax
+## grammar syntax
 
 the grammar has to be in chomschy normal form and should be written in the following syntax
 
 - the starting production has to be **S**
 - following put **->** and than the possible pructions divided by the **|** symbol 
+  
+### example grammar
+
+S->AB|BC
+A->BA|a
+B->CC|b
+C->AB|a
 
