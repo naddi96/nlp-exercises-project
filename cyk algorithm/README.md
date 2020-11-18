@@ -35,7 +35,7 @@ A->BA|a
 B->CC|b  
 C->AB|a
 ## program out put
-
+```
 [[{'B'} {'C', 'A'} {'C', 'A'} {'B'} {'C', 'A'}]  
  [{'S', 'A'} {'B'} {'S', 'C'} {'S', 'A'} 0]  
  [set() {'B'} {'B'} 0 0]  
@@ -61,3 +61,4 @@ S
                 └── a  
 
 la parola: 'baaba'  appartiene alla grammatica
+```
