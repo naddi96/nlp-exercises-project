@@ -39,7 +39,7 @@ def generate_possible_random_tree(matr,node,pro):
         if k[3] == pro:
             possible_path.append(k)
     if (possible_path ==[]):
-        return [0]
+        return [0]    
     chosen=random.choice(possible_path)
     
     if chosen[2].islower():
@@ -48,6 +48,30 @@ def generate_possible_random_tree(matr,node,pro):
     generate_possible_random_tree(matr,chosen[0],chosen[2][0]),
     generate_possible_random_tree(matr,chosen[1],chosen[2][1])]]
 
+
+
+def generate_all_tree(matr,node,pro):
+    lis=matr[node[0]][node[1]]
+    possible_path=[]
+    for k in lis:
+        if k[3] == pro:
+            possible_path.append(k)
+    if (possible_path ==[]):
+        return [0]    
+    list_path=["possibili sottoalberi",]
+    k=len(possible_path)
+    for chosen in possible_path:    
+        if chosen[2].islower():
+            return [pro,[chosen[2]]]
+        if k==1:
+            return [pro,[chosen[2],
+        generate_all_tree(matr,chosen[0],chosen[2][0]),
+        generate_all_tree(matr,chosen[1],chosen[2][1])]]
+        else:
+            list_path.append([pro,[chosen[2],
+            generate_all_tree(matr,chosen[0],chosen[2][0]),
+            generate_all_tree(matr,chosen[1],chosen[2][1])]])
+    return list_path
 
 
 def cyk(grammar,string):
@@ -83,7 +107,10 @@ def cyk(grammar,string):
                                 back_matr[riga+1][col].append([[i+1,col],[riga-i-1+1,col+i+1],x,k])
                 matr[riga][col]=set_prod
     print(matr)
-    printTree.print_tree(generate_possible_random_tree(back_matr,[len_parola,0],"S"))
+    
+    printTree.print_tree(generate_all_tree(back_matr,[len_parola,0],"S"))   
+    #print(generate_possible_random_tree(back_matr,[len_parola,0],"S"))
+    #printTree.print_tree(generate_possible_random_tree(back_matr,[len_parola,0],"S"))
     if "S" in matr[len_parola-1][0] :
         return True
     else:

@@ -1,3 +1,4 @@
-S->AB
+S->AB|CC
 A->AA|a
 B->BB|b
+C->CC|a|b

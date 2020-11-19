@@ -4,7 +4,7 @@ simple implementation of cyk algorithm for parsing strings of a grammar
 
 ## how to run
 
-after installing the dependency (just numpy)
+after installing the dependency 
 
 - `pip3 install -r requirements.txt`
 
@@ -36,29 +36,49 @@ B->CC|b
 C->AB|a
 ## program out put
 ```
-[[{'B'} {'C', 'A'} {'C', 'A'} {'B'} {'C', 'A'}]  
- [{'S', 'A'} {'B'} {'S', 'C'} {'S', 'A'} 0]  
- [set() {'B'} {'B'} 0 0]  
- [set() {'A', 'S', 'C'} 0 0 0]  
- [{'S', 'C', 'A'} 0 0 0 0]]  
-S  
-└── AB  
-    ├── A  
-    │   └── BA  
-    │       ├── A  
-    │       │   └── a  
-    │       └── B  
-    │           └── b  
-    └── B  
-        └── CC  
-            ├── C  
-            │   └── AB  
-            │       ├── A  
-            │       │   └── a  
-            │       └── B  
-            │           └── b  
-            └── C  
-                └── a  
+[[{'B'} {'C', 'A'} {'C', 'A'} {'B'} {'C', 'A'}]
+ [{'S', 'A'} {'B'} {'S', 'C'} {'S', 'A'} 0]
+ [set() {'B'} {'B'} 0 0]
+ [set() {'S', 'C', 'A'} 0 0 0]
+ [{'S', 'C', 'A'} 0 0 0 0]]
+
+ 
+possibili sottoalberi
+├── S
+│   └── BC
+│       ├── B
+│       │   └── b
+│       └── C
+│           └── AB
+│               ├── A
+│               │   └── a
+│               └── B
+│                   └── CC
+│                       ├── C
+│                       │   └── AB
+│                       │       ├── A
+│                       │       │   └── a
+│                       │       └── B
+│                       │           └── b
+│                       └── C
+│                           └── a
+└── S
+    └── AB
+        ├── A
+        │   └── BA
+        │       ├── A
+        │       │   └── a
+        │       └── B
+        │           └── b
+        └── B
+            └── CC
+                │   └── AB
+                │       ├── A
+                │       │   └── a
+                │       └── B
+                │           └── b
+                └── C
+                    └── a
 
 la parola: 'baaba'  appartiene alla grammatica
 ```
