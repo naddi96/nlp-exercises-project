@@ -38,7 +38,10 @@ def generate_possible_random_tree(matr,node,pro):
     for k in lis:
         if k[3] == pro:
             possible_path.append(k)
+    if (possible_path ==[]):
+        return [0]
     chosen=random.choice(possible_path)
+    
     if chosen[2].islower():
         return [pro,[chosen[2]]]
     return [pro,[chosen[2],
