@@ -4,7 +4,7 @@ import random
 import printTree 
 
 def load_grammar():
-    lines=open("gram.txt","r").readlines()
+    lines=open("gram2.txt","r").readlines()
     grammatica=[]
     for line in lines:        
         part=line.split("->")
@@ -106,22 +106,24 @@ def cyk(grammar,string):
                             if k!={}:
                                 back_matr[riga+1][col].append([[i+1,col],[riga-i-1+1,col+i+1],x,k])
                 matr[riga][col]=set_prod
-    print(matr)
-    
-    printTree.print_tree(generate_all_tree(back_matr,[len_parola,0],"S"))   
-    #print(generate_possible_random_tree(back_matr,[len_parola,0],"S"))
-    #printTree.print_tree(generate_possible_random_tree(back_matr,[len_parola,0],"S"))
+   
     if "S" in matr[len_parola-1][0] :
-        return True
+        return True,back_matr,matr
     else:
-        return False
+        return False,back_matr,matr
 
 if __name__ == "__main__":
     grammatica = load_grammar()
     parola= load_word()
-    if cyk(grammatica,parola):
+    result=cyk(grammatica,parola)
+    if result[0]:
         print("la parola: '"+parola+"'  appartiene alla grammatica")
     else:
         print("la parola: '"+parola+"'  non appartiene alla grammatica")
 
-    
+    print(result[1])
+    print()
+    print()
+    print(result[2])
+    #print(generate_possible_random_tree(back_matr,[len_parola,0],"S"))
+    printTree.print_tree(generate_possible_random_tree(result[1],[len(parola),0],"S"))
