@@ -1,6 +1,7 @@
 from treelib import Node, Tree
 
 
+
 def print_tree(input):
     root, *tail = input
     tree = Tree()
@@ -9,7 +10,9 @@ def print_tree(input):
 
     q = [[node, *tail]]
     while q:
+        
         parent, *children = q.pop()
+        
         for child in children:
             if isinstance(child, list):
                 head, *tail = child
@@ -18,4 +21,5 @@ def print_tree(input):
             else:
                 tree.create_node(child, parent=parent)
 
+    tree.save2file("prova2")
     tree.show()

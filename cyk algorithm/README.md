@@ -19,66 +19,17 @@ put the string that you want to parse into the file
 - **stri.txt**
 
 put your grammar into the file
-- **gram.txt**
+- **BinaryGrammar.txt**
 
-## grammar syntax
-
-the grammar has to be in chomschy normal form and should be written in the following syntax
-
-- the starting production has to be **S**
-- following put **->** and than the possible pructions divided by the **|** symbol 
   
-### example grammar
+## tree visualization
 
-S->AB|BC  
-A->BA|a  
-B->CC|b  
-C->AB|a
-## program out put
-```
-[[{'B'} {'C', 'A'} {'C', 'A'} {'B'} {'C', 'A'}]
- [{'S', 'A'} {'B'} {'S', 'C'} {'S', 'A'} 0]
- [set() {'B'} {'B'} 0 0]
- [set() {'S', 'C', 'A'} 0 0 0]
- [{'S', 'C', 'A'} 0 0 0 0]]
+you can visualaze the parsing tree in your browser by launching this commands
+- `cd './tree graph/'`
 
- 
-possibili sottoalberi
-├── S
-│   └── BC
-│       ├── B
-│       │   └── b
-│       └── C
-│           └── AB
-│               ├── A
-│               │   └── a
-│               └── B
-│                   └── CC
-│                       ├── C
-│                       │   └── AB
-│                       │       ├── A
-│                       │       │   └── a
-│                       │       └── B
-│                       │           └── b
-│                       └── C
-│                           └── a
-└── S
-    └── AB
-        ├── A
-        │   └── BA
-        │       ├── A
-        │       │   └── a
-        │       └── B
-        │           └── b
-        └── B
-            └── CC
-                │   └── AB
-                │       ├── A
-                │       │   └── a
-                │       └── B
-                │           └── b
-                └── C
-                    └── a
+- `python3 -m  http.server`
 
-la parola: 'baaba'  appartiene alla grammatica
-```
+and by going to the following urls in your browses
+
+- `http://localhost:8000/cluster-dendrogram`
+- `http://localhost:8000/expandable-tree`
