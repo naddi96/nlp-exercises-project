@@ -1,0 +1,14 @@
+{
+  "name": "@d3/cluster-dendrogram",
+  "main": "b686454b1f3dff84@167.js",
+  "version": "167.0.0",
+  "homepage": "https://observablehq.com/@d3/cluster-dendrogram",
+  "author": {
+    "name": "D3",
+    "url": "https://observablehq.com/@d3"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
